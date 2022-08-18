@@ -1,0 +1,15 @@
+<div class="spacer">
+<h1 class="center">Create Project</h1>
+  <div class="users-index-container">
+    <div class="users-index center">
+      <%= form_with(model: @projects, local: true) do |f| %>
+      <%= f.label :title %> <br>
+      <%= f.text_field :title, class: 'form-control' %><br>
+      <%= f.label :user_id, class: 'form-control', style: "display:none" %><br>
+      <%= f.text_field :user_id, class: 'form-control', class: 'form-control', style: "display:none"  %><br>
+      
+      <%= f.submit "Create Project", class: "center btn" %>
+      <% end %>
+    </div>
+  </div>
+</div>

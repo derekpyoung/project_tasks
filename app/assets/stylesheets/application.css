@@ -1,0 +1,152 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ * {
+   margin: 0;
+   padding: 0;
+   
+ }
+ 
+
+ ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 3rem;
+  background-color: grey;
+}
+li {
+  float: right;
+}
+.users-index {
+
+  /* border: 1px solid black; */
+  padding: 14px;
+  margin: 2px;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav li a:hover {
+   background-color: lightgrey;
+}
+
+ body {
+   padding: 1rem;
+   margin: 1rem;
+ }
+ table {
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 150px;
+}
+td, th {
+  padding: 15px;
+}
+table, td, th {
+  border: 1px solid black;
+   text-align: center;
+ }
+ th {
+   background-color: beige;
+ }
+ .container {
+   width: 50%;
+   display: flex;
+   justify-content: center;
+   margin: auto;
+   padding: 1rem;
+ }
+ .task-input {
+   padding: 1rem;
+
+ }
+ .task-input, p {
+   margin: 12px;
+   text-align: right;
+ }
+ .center {
+   display: flex;
+   justify-content: center;
+   margin: 0 auto;
+ }
+ .projects-container {
+
+   display: flex;
+   align-items: flex-start;
+   justify-content: center;
+ }
+ .projects-container a{
+  background-color: #c290e4;
+  color: white;
+  padding: 14px 25px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: left;
+  border: 1px solid black;
+  text-decoration: none;
+  display: inline-block;
+ }
+ .projects-container a:hover{
+  background-color: #6f36f4;
+  color: black;
+  font-weight: bold;
+  padding: 14px 25px;
+  box-shadow: 3px 2px grey ;
+  border-radius: 5px;
+  text-align: left;
+  border: 1px solid black;
+  text-decoration: none;
+  display: inline-block;
+ }
+ .btn {
+  background-color: #c290e4;
+  color: white;
+  padding: 14px 25px;
+  border-radius: 4px;
+
+ }
+ .btn-task {
+  background-color: #c290e4;
+  color: white;
+  padding: 14px 25px;
+  border-radius: 4px;
+ }
+ .btn-task:hover {
+  background-color: #bc88e7;
+  color: black;
+  font-weight: bold;
+  padding: 14px 25px;
+  box-shadow: 1px 2px grey ;
+  border-radius: 5px;
+ }
+ .login-container {
+   display: flex;
+ }
+.login {
+  float: right;
+  padding: 10px;
+}
+.login-btn {
+  margin-top: 50px;
+  
+}

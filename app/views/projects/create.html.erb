@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="task-input">
+      <%= form_with model: @tasks , local: true  do |f| %>
+
+      <p> <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control', placeholder: "title" %>  </p>
+
+    <p> <%= f.label :due_date %> 
+      <%= f.date_field :due_date, class: 'form-control', placeholder: "Due date"%> </p>
+
+    <p> <%= f.label :status %>
+      <%= f.text_field :status, class: 'form-control',placeholder: "status" %> </p>
+
+      <% if @project %>
+       <%= f.text_field :project_id, class: 'form-control', required: true, placeholder: @project.title,  value: @project.id , style: "display:none" %> </p> 
+       <% else %> 
+         <%= f.text_field :project_id, class: 'form-control', required: true  %> </p> 
+         <%end%>
+      <div class="btn center">
+      <%= f.submit "Create Task", class: "btn " %>
+      </div>  
+      <% end %>
+    </div>
+  </div>

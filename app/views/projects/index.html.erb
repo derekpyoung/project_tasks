@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+<% if current_user %>
+  <h1 class="center" > <%= current_user.name.capitalize %>'s  Projects</h1>
+  <%else %>
+  <h1 class="center" >Projects </h1>
+  <%end%>
+  <%@projects.each do |project| %>
+    <% if project.user_id ==  current_user.id %>
+      <div class="projects-container ">
+      <% if project.title != nil %>
+         <p> <a href="/projects/<%=project.id%>"><%= project.title.capitalize%></a> </p>
+      <% else %>
+       
+      <%end%>
+    <% end %>
+  <% end %>
+ 
+</body>
+
+</html>

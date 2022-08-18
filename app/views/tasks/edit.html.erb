@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>
+    <%=@task.project%>
+    <%= @task.due_date %>
+    <%= @task.status%>
+  </h1>
+
+  <table class="basic-table" >
+    <tr>
+      <th>Tasks </th>
+      <th>Status</th>
+      <th>Due date</th>
+      
+    
+      
+    </tr>
+   
+
+      <tr>
+        <%if @task.due_date < Time.now && @task.status.downcase != "complete" %>
+            <td style="background-color:rgb(255, 124, 124)"><%= @task.title.capitalize %> </td>
+            <td style="background-color:rgb(255, 124, 124)"><%=@task.status.capitalize %></td>
+            <td style="background-color: rgb(255, 124, 124)"><%=@task.due_date %></td>
+          <% elsif @task.status == "complete" %>
+          
+            <td style="background-color:rgb(98, 194, 95)"><%= @task.title.capitalize %> </td>
+            <td style="background-color:rgb(98, 194, 95)"><%=@task.status.capitalize %></td>
+            <td style="background-color: rgb(98, 194, 95)"><%=@task.due_date %></td>
+          <%else%>
+        
+            <td><%= @task.title.capitalize%> </td>
+            <td><%= @task.status.capitalize%> </td>
+            <td><%= @task.due_date%> </td>
+          <%end%>
+         
+         
+         
+        
+      </tr>
+  </table>
+
+  <h1 class ="center">Edit task</h1>
+  <div class="container">
+    <div class="task-input">
+  
+      <%= form_with model: @tasks , :method=>"patch" do |f| %>
+
+
+
+      <p> <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control', placeholder: "title" %>  </p>
+
+    <p> <%= f.label :due_date %> 
+      <%= f.text_field :due_date, class: 'form-control', placeholder: "ex: 01 jan 1991"%> </p>
+
+    <p> <%= f.label :status %>
+      <%# <%= f.text_field :status, class: 'form-control',placeholder: "status" %> 
+      <%= f.select :status, [["Not started", "not started"], ["Started", "started"], ["Completed", "completed"]], {}, {class: "form-control"} %>
+
+      
+      
+      <div class=" center">
+      <%= f.submit "Update Task", class: "btn-task" %>
+      </div>  
+      <% end %>
+    </div>
+  </div>
+
+  
+
+</body>
+
+</html>

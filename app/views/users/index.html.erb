@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  
+  
+  <%@users.each do |user| %>
+    <% if user == current_user %>
+      <h3>Welcome, <%= user.name.capitalize %></h3>
+      <h3>Your Projects are..</h3>
+        <% user.projects.each do |project| %>
+          <a href="projects/<%=project.id%>"> <%= project.title %></p>
+        <%end%>
+    <%end%>
+  <%end%>
+</body>
+
+</html>

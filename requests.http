@@ -1,0 +1,9 @@
+###
+PATCH http://localhost:3000/tasks/32
+Content-Type: application/json 
+
+{
+  "title" : "poop",
+  "status": "Started",
+  "due_date": "22 aug 2022"
+}
