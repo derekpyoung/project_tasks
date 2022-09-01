@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
       user_id: current_user.id
     )
     if pro.save 
-      redirect_to '/'
+      redirect_to "/"
     end 
   end 
 

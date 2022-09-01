@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     u.password = params[:password] || u.password
     u.password_confirmation = params[:password_confirmation] || u.password_confirmation
     u.save 
+    redirect_back(fallback_location: @user)
   end
 
   def destroy
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
     pp "shit"
 
     if u.save 
-      redirect_to "/users"
+      redirect_to "/login"
     end 
   end
 end

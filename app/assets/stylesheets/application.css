@@ -18,6 +18,13 @@
    padding: 0;
    
  }
+ .btn-back a{
+  color: white;
+  text-decoration: none;
+ }
+ .btn-back {
+   margin: 20px;
+ }
  
 
  ul {

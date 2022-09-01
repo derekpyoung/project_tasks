@@ -23,6 +23,7 @@ class TasksController < ApplicationController
     pp params[:status]
     pp params[:due_date]
     @task.save 
+    redirect_back(fallback_location: @task)
  
   end
   
@@ -42,6 +43,7 @@ class TasksController < ApplicationController
     )
     
     t.save 
+    redirect_back(fallback_location: @project)
    
   end
 end

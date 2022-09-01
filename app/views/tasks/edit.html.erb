@@ -20,6 +20,7 @@
       <th>Tasks </th>
       <th>Status</th>
       <th>Due date</th>
+
       
     
       
@@ -27,7 +28,7 @@
    
 
       <tr>
-        <%if @task.due_date < Time.now && @task.status.downcase != "complete" %>
+        <%if @task.due_date < Time.now && @task.status.downcase != "completed" %>
             <td style="background-color:rgb(255, 124, 124)"><%= @task.title.capitalize %> </td>
             <td style="background-color:rgb(255, 124, 124)"><%=@task.status.capitalize %></td>
             <td style="background-color: rgb(255, 124, 124)"><%=@task.due_date %></td>
@@ -69,11 +70,13 @@
 
       
       
+      
       <div class=" center">
       <%= f.submit "Update Task", class: "btn-task" %>
       </div>  
       <% end %>
     </div>
+    <h1> shit </h1>
   </div>
 
   

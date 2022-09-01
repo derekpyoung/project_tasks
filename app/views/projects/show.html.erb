@@ -26,12 +26,12 @@
     <% @project.tasks.each do |task| %>
 
       <tr>
-        <%if task.due_date < Time.now && task.status.downcase != "complete" %>
+        <%if task.status.downcase != "completed" && task.due_date < Time.now %>
             <td  style="background-color:rgb(255, 124, 124)"> <a href="/tasks/<%=task.id%>" >Edit</a></td>
             <td style="background-color:rgb(255, 124, 124)"><%= task.title.capitalize %> </td>
             <td style="background-color:rgb(255, 124, 124)"><%=task.status.capitalize %></td>
             <td style="background-color: rgb(255, 124, 124)"><%=task.due_date %></td>
-          <% elsif task.status == "complete" %>
+          <% elsif task.status == "completed" %>
           <td  style="background-color:rgb(98, 194, 95)"> <a href="/tasks/<%=task.id%>">Edit</a></td>
             <td style="background-color:rgb(98, 194, 95)"><%= task.title.capitalize %> </td>
             <td style="background-color:rgb(98, 194, 95)"><%=task.status.capitalize %></td>
@@ -59,13 +59,13 @@
       <%= form_with model: @tasks , local: true  do |f| %>
 
       <p> <%= f.label :title %>
-      <%= f.text_field :title, class: 'form-control', placeholder: "title" %>  </p>
+      <%= f.text_field :title, class: 'form-control', placeholder: "Title" %>  </p>
 
     <p> <%= f.label :due_date %> 
-      <%= f.text_field :due_date, class: 'form-control', placeholder: "ex: 01 jan 1991"%> </p>
+       <%= f.date_field :due_date, class: 'form-control', placeholder: "" %> </p>
 
     <p> <%= f.label :status %>
-       <%= f.select :status, [["Not started", "not started"], ["Started", "started"], ["Complete", "complete"]], {}, {class: "form-control"} %>
+       <%= f.select :status, [["Not started", "not started"], ["Started", "started"], ["Completed", "completed"]], {}, {class: "form-control"} %>
       
        <%= f.text_field :project_id, class: 'form-control', required: true, placeholder: @project.title,  value: @project.id , style: "display:none" %> </p>  
       <div class=" center">

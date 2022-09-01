@@ -11,8 +11,11 @@
 <body>
 <br>
   <h1 class="center">
-    <%=@task.project.title%>
+    <%=@task.project.title.capitalize%>
   </h1>
+  <button class="btn btn-back">
+    <a href="/projects/<%=@task.project.id%>">Back to Project </a>
+  </button>
   <br>
 
   <table class="basic-table" >
@@ -21,18 +24,16 @@
       <th>Status</th>
       <th>Due date</th>
       
-    
       
     </tr>
    
 
       <tr>
-        <%if @task.due_date < Time.now && @task.status.downcase != "complete" %>
+        <%if @task.status !="completed" && @task.due_date < Time.now  %>
             <td style="background-color:rgb(255, 124, 124)"><%= @task.title.capitalize %> </td>
             <td style="background-color:rgb(255, 124, 124)"><%=@task.status.capitalize %></td>
             <td style="background-color: rgb(255, 124, 124)"><%=@task.due_date %></td>
-          <% elsif @task.status == "complete" %>
-          
+          <% elsif @task.status == "completed"   %>
             <td style="background-color:rgb(98, 194, 95)"><%= @task.title.capitalize %> </td>
             <td style="background-color:rgb(98, 194, 95)"><%=@task.status.capitalize %></td>
             <td style="background-color: rgb(98, 194, 95)"><%=@task.due_date %></td>
@@ -58,14 +59,13 @@
 
 
       <p> <%= f.label :title %>
-      <%= f.text_field :title, class: 'form-control', placeholder: "title" %>  </p>
+      <%= f.text_field :title, class: 'form-control', value: @task.title %>  </p>
 
     <p> <%= f.label :due_date %> 
-      <%= f.date_field :due_date, class: 'form-control', placeholder: "ex 01 jan 1991" %> </p>
+      <%= f.date_field :due_date, class: 'form-control', value: @task.due_date %> </p>
 
     <p> <%= f.label :status %>
-      <%# <%= f.text_field :status, class: 'form-control',placeholder: "status" %> 
-      <%= f.select :status, [["Not started", "not started"], ["Started", "started"], ["Completed", "completed"]], {}, {class: "form-control"} %>
+      <%= f.select :status, [["Not started", "not started"], ["Started", "started"], ["Completed", "completed"]], {}, {class: "form-control", value: @task.status} %>
 
       
       
@@ -75,9 +75,7 @@
       <% end %>
     </div>
   </div>
-
   
-
 </body>
 
 </html>
